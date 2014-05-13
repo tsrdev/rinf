@@ -14,6 +14,7 @@ angular
     $locationProvider.html5Mode(true).hashPrefix('!');
     $routeProvider
       .when('/', {
+        title: "Home",
         templateUrl: '/views/main.html',
         controller: 'MainCtrl'
       })
