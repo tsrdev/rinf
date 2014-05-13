@@ -1,0 +1,7 @@
+<div ng-if="User.id" class="jumbotron thanks">
+  <div ng-repeat="message in Messages" data-alert="" data-type="success" close="closeMsg($index)">
+    Thank you, <b ng-bind="User.first_name"></b>. Please confirm your email and you are good to go!
+  </div>
+  <!-- /.row -->
+</div>
+<!-- /.jumbotron.thanks -->

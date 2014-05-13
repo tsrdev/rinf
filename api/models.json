@@ -1,0 +1,200 @@
+{
+  "email": {
+    "options": {
+      "base": "Email"
+    },
+    "dataSource": "mail",
+    "public": false
+  },
+  "user": {
+    "options": {
+      "base": "User",
+      "relations": {
+        "accessTokens": {
+          "model": "accessToken",
+          "type": "hasMany",
+          "foreignKey": "userId"
+        },
+        "templates": {
+          "model": "template",
+          "type": "hasMany",
+          "foreignKey": "authorId"
+        },
+        "resumes": {
+          "model": "resume",
+          "type": "hasMany",
+          "foreignKey": "ownerId"
+        }
+      },
+      "scopes": {
+        "admins": {
+          "where": {
+            "admin": true
+          }
+        }
+      }
+    },
+    "dataSource": "mongodb-local",
+    "public": true
+  },
+  "accessToken": {
+    "options": {
+      "base": "AccessToken"
+    },
+    "dataSource": "db",
+    "public": true
+  },
+  "application": {
+    "options": {
+      "base": "Application"
+    },
+    "dataSource": "db",
+    "public": true
+  },
+  "acl": {
+    "options": {
+      "base": "ACL"
+    },
+    "dataSource": "db",
+    "public": false
+  },
+  "roleMapping": {
+    "options": {
+      "base": "RoleMapping"
+    },
+    "dataSource": "db",
+    "public": false
+  },
+  "role": {
+    "options": {
+      "base": "Role",
+      "relations": {
+        "principals": {
+          "type": "hasMany",
+          "model": "roleMapping",
+          "foreignKey": "roleId"
+        }
+      }
+    },
+    "dataSource": "db",
+    "public": false
+  },
+  "scope": {
+    "options": {
+      "base": "Scope"
+    },
+    "dataSource": "db",
+    "public": false
+  },
+  "push": {
+    "options": {
+      "base": "Push",
+      "plural": "push"
+    },
+    "dataSource": "push"
+  },
+  "installation": {
+    "options": {
+      "base": "Installation"
+    },
+    "dataSource": "db",
+    "public": true
+  },
+  "notification": {
+    "options": {
+      "base": "Notification"
+    },
+    "dataSource": "db",
+    "public": true
+  },
+  "template": {
+    "options": {
+      "relations": {
+        "author": {
+          "model": "user",
+          "type": "belongsTo",
+          "foreignKey": "authorId"
+        },
+        "resumes": {
+          "model": "resume",
+          "type": "hasMany",
+          "foreignKey": "templateId"
+        }
+      },
+      "scopes": {
+        "defaults": {
+          "where": {
+            "default": true
+          }
+        }
+      }
+    },
+    "properties": {
+      "id": {
+        "type": "string",
+        "id": true
+      },
+      "name": {
+        "type": "string"
+      },
+      "authorId": {
+        "type": "string"
+      },
+      "default": {
+        "type": "boolean"
+      },
+      "properties": {
+        "type": "object"
+      },
+      "created": {
+        "type": "date"
+      },
+      "modified": {
+        "type": "date"
+      }
+    },
+    "public": true,
+    "dataSource": "mongodb-local",
+    "plural": "templates"
+  },
+  "resume": {
+    "options": {
+      "relations": {
+        "owner": {
+          "model": "user",
+          "type": "belongsTo",
+          "foreignKey": "ownerId"
+        },
+        "template": {
+          "model": "template",
+          "type": "belongsTo",
+          "foreignKey": "templateId"
+        }
+      }
+    },
+    "properties": {
+      "id": {
+        "type": "string",
+        "id": true
+      },
+      "ownerId": {
+        "type": "string"
+      },
+      "templateId": {
+        "type": "string"
+      },
+      "data": {
+        "type": "object"
+      },
+      "created": {
+        "type": "date"
+      },
+      "modified": {
+        "type": "date"
+      }
+    },
+    "public": true,
+    "dataSource": "mongodb-local",
+    "plural": "resumes"
+  }
+}

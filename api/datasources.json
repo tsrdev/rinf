@@ -1,0 +1,39 @@
+{
+  "db": {
+    "defaultForType": "db",
+    "connector": "memory",
+    "file": "mem_dump.json"
+  },
+  "push": {
+    "defaultForType": "push",
+    "connector": "loopback-push-notification",
+    "installation": "installation",
+    "notification": "notification",
+    "application": "application"
+  },
+  "mail": {
+    "defaultForType": "mail",
+    "connector": "mail",
+    "connector": "mail",
+    "transports": [
+      {
+        "type": "Sendmail",
+        "host": "localhost",
+        "secureConnection": true,
+        "port": 465,
+        "auth": {
+          "user": "you@gmail.com",
+          "pass": "YourGmailpasswd"
+        }
+      }
+    ]
+  },
+  "mongodb-local": {
+    "connector": "loopback-connector-mongodb",
+    "host": "127.0.0.1",
+    "database": "dev",
+    "username": "dev",
+    "password": "devPasswd",
+    "port": 27017
+  }
+}

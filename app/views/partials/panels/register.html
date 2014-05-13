@@ -1,0 +1,41 @@
+<div class="jumbotron" id="registerWrapper">
+  <div class="row">
+    <h3>Register</h3>
+  </div>
+
+  <form class="form-horizontal" ng-submit="register()" name="registrationForm" id="registrationForm" role="register" novalidate>
+
+    <div class="form-group">
+      <label for="first_name" class="control-label">First Name</label>
+      <input class="form-control" id="first_name" name="first_name" ng-model="User.first_name" required="true" ng-minlength="1"
+             type="text" placeholder="first name"/>
+    </div>
+
+    <div class="form-group">
+      <label for="last_name" class="control-label">Last Name</label>
+      <input class="form-control" id="last_name" name="last_name" ng-model="User.last_name" required="true" ng-minlength="1"
+             type="text" placeholder="last name"/>
+    </div>
+
+    <div class="form-group">
+      <label for="username" class="control-label">Username</label>
+      <input class="form-control" id="username" name="username" ng-model="User.username" required="true" ng-minlength="1"
+             type="text" placeholder="username"/>
+    </div>
+
+    <div class="form-group">
+      <label for="email" class="control-label">Email Address</label>
+      <input class="form-control" id="email" name="email" ng-model="User.email" required="true" ng-minlength="1" type="email" placeholder="Your email"/>
+    </div>
+
+    <div class="form-group">
+      <label for="password" class="control-label">Password:</label>
+      <input class="form-control" id="password" name="password" ng-model="User.password" required="true" ng-minlength="1"
+             type="password" placeholder="Your password"/>
+    </div>
+
+    <button type="submit" class="btn btn-block btn-info" ng-disabled="registrationForm.$invalid">Sign up
+      <span class="glyphicon" ng-class="{'glyphicon-ok':registrationForm.$valid,'glyphicon-remove':registrationForm.$invalid}"></span>
+    </button>
+  </form>
+</div>

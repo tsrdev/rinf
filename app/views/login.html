@@ -1,0 +1,39 @@
+<!-- Header -->
+<div ng-include="'/views/partials/common/header.html'"></div>
+<!-- /Header -->
+
+<!-- Main content -->
+<div class="jumbotron" id="loginWrapper">
+  <div class="row">
+    <h3>Login</h3>
+  </div>
+  <form class="form-horizontal" ng-submit="login()" name="loginForm" id="loginForm" role="login" novalidate>
+    <div class="form-group">
+      <label for="email" class="control-label">Email Address</label>
+      <input class="form-control" id="email" name="email" ng-model="User.email" required="true" ng-minlength="1" type="email" placeholder="Your email"/>
+    </div>
+
+    <div class="form-group">
+      <label for="password" class="control-label">Password:</label>
+      <input class="form-control" id="password" name="password" ng-model="User.password" required="true" ng-minlength="1"
+             type="password" placeholder="Your password"/>
+    </div>
+
+    <div class="form-group">
+      <div class="checkbox">
+        <label for="rememberMe">
+          <input type="checkbox" ng-model="User.rememberMe" name="rememberMe" id="rememberMe">
+          <span> Remember me</span>
+        </label>
+      </div>
+    </div>
+    <button type="submit" class="btn btn-block btn-info" ng-disabled="loginForm.$invalid">Log me in<span class="glyphicon"
+                                                                                                         ng-class="{'glyphicon-ok':loginForm.$valid,'glyphicon-remove':loginForm.$invalid}"></span>
+    </button>
+  </form>
+</div>
+<!-- /Main content -->
+
+<!-- Footer -->
+<div ng-include="'/views/partials/common/footer.html'"></div>
+<!-- /Footer -->
