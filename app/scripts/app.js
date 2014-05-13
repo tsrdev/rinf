@@ -69,6 +69,9 @@ angular
       editableOptions.theme = 'bs3';
       $rootScope.Page = {};
       $rootScope.$on('$routeChangeSuccess', function (event, current, past) {
+        /**
+         * Update the page title
+         */
         $rootScope.Page.title = current.$$route.title;
       })
     }
