@@ -1,5 +1,6 @@
 {
   "port": 2048,
+  "name": "rinfApi",
   "host": "127.0.0.1",
   "cookieSecret": "b59687f8-e8dc-48f0-b792-382e2d332188",
   "restApiRoot": "/api"

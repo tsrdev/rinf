@@ -413,7 +413,7 @@ module.exports = function (grunt) {
     loopback_angular: {
       app: {
         options: {
-          input: './api/app.js',
+          input: './rinfApi/app.js',
           output: '<%= yeoman.app %>/scripts/services/api.js',
           ngModuleName: 'api',
           apiUrl: 'http://rinf.dtk.me/api'
